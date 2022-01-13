@@ -1,0 +1,17 @@
+# Minikube Setup
+sudo apt-get update -y
+sudo apt-get install apt-transport-https -y
+sudo apt-get upgrade -y
+sudo apt install virtualbox virtualbox-ext-pack -y
+wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x minikube-linux-amd64
+sudo mv minikube-linux-amd64 /usr/local/bin/minikube
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+sudo apt install docker.io -y
+sudo apt install conntrack -y 
+sudo minikube start --vm-driver=none
+
+#Java installation for jenkins slave
+sudo apt install openjdk-8-jdk -y
